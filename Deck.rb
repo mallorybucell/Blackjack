@@ -7,19 +7,19 @@ class Deck
       
 
       suit_array = [:C, :D, :H, :S]
-      rank_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-      face_array = [:J, :Q, :K, :A]
+      nface_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      fface_array = [:J, :Q, :K, :A]
       deck_of_cards = []
       #Create numeric cards
       suit_array.each do |s|
-        (rank_array.size - 1).times do |r|
-          deck_of_cards << Card.new( rank_array[r].to_i, s.to_sym )
+        (nface_array.size - 1).times do |nf|
+          deck_of_cards << Card.new( nface_array[nf].to_i, s.to_sym )
         end
       end
       #Create facecards
       suit_array.each do |s|
-        face_array.size.times do |r|
-          deck_of_cards << Card.new( face_array[r].to_sym, s.to_sym )
+        fface_array.size.times do |ff|
+          deck_of_cards << Card.new( fface_array[ff].to_sym, s.to_sym )
         end
       end
       @cards = deck_of_cards.shuffle!
@@ -32,9 +32,9 @@ class Deck
   end
 
   def draw
-    take = cards.pop
-    @drawn << take
-    take
+    taken = @cards.pop
+    @drawn << taken
+    taken
     
   end
 

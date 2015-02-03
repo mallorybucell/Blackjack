@@ -71,7 +71,7 @@ class TestHand < Minitest::Test
 
   def test_busting
     hand = Hand.new
-    hand.add(Card.new(6, :H), Card.new(:K, :S), Card.new(9, :H))
+    hand.add(Card.new(6, :H), Card.new(:K, :S), Card.new(9, :H))  
     assert hand.busted?
   end
 
