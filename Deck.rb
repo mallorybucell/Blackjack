@@ -1,6 +1,7 @@
 class Deck
 
   def initialize
+    @cards = cards
   end
 
   def create_deck
@@ -12,10 +13,28 @@ class Deck
 
     #Create numeric cards
     suit_array.each do |s|
-      rank_array.size.times do |r|
+      (rank_array.size - 1).times do |r|
         deck_of_cards << Card.new( rank_array[r].to_i, s.to_sym )
       end
     end
+    suit_array.each do |s|
+      face_array.size.times do |r|
+        deck_of_cards << Card.new( face_array[r].to_sym, s.to_sym )
+      end
+    end
+    
     return deck_of_cards
+  end
+
+  def cards
+    available = create_deck.shuffle
+  end
+
+  def draw
+    drawn = cards.pop
+  end
+
+  def drawn
+    drawn.push(draw)
   end
 end
