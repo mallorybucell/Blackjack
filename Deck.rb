@@ -23,7 +23,7 @@ class Deck
         end
       end
       @cards = deck_of_cards.shuffle!
-      @draw = []
+      
   end
 
 
@@ -32,11 +32,13 @@ class Deck
   end
 
   def draw
-    cards = cards.take(1)
+    take = cards.pop
+    @drawn << take
+    take
     
   end
 
   def drawn
-    drawn = draw
+    @drawn
   end
 end
