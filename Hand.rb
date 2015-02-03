@@ -5,15 +5,19 @@ class Hand
   end
 
   def hand
-    @hand
+    @hand_cards
   end
 
   def add(*c)
+    #add new cards to hand
     @hand_cards.push(c)
   end
 
-  def hand_value
-    hand_cards.each
-      hand_value += card.value
+  def value
+  #recalculate hand_value based on additional cards
+  ##why can't I call card value here?
+    @hand_cards.each
+      @hand_value += card.value
+    @hand_value
   end
 end
