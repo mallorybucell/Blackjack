@@ -71,7 +71,7 @@ class TestHand < Minitest::Test
 
   def test_busting
     hand = Hand.new
-    hand.add(Card.new(6, :H), Card.new(:K, :S), Card.new(9, :H))
+    hand.add(Card.new(6, :H), Card.new(:K, :S), Card.new(9, :H))  
     assert hand.busted?
   end
 
@@ -85,6 +85,7 @@ class TestHand < Minitest::Test
     hand = Hand.new
     hand.add(Card.new(:A, :H), Card.new(:K, :S))
     hand.add(Card.new(5, :S))
+  binding.pry
     assert_equal hand.to_s, 'AH, KS, 5S'
   end
 end

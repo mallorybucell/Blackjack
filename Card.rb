@@ -8,14 +8,17 @@ class Card
     @face
   end
 
-  def value
-  face_value_hash = {:J => 10, :Q => 10, :K => 10, :A => 11}
+  def suit
+    @suit
+  end
 
-    if face.class == Symbol
-      value = face_value_hash[face]
-    else 
-      value = face.to_i 
-    end
+  def value
+    face_value_hash = {:J => 10, :Q => 10, :K => 10, :A => 11}
+      if face.class == Symbol
+        value = face_value_hash[face]
+      else 
+        value = face.to_i 
+      end
   end
 
   def rank
@@ -26,5 +29,9 @@ class Card
     else 
       rank = face.to_i 
     end
+  end
+
+  def card_string
+    
   end
 end
