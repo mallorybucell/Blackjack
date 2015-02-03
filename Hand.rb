@@ -2,6 +2,7 @@ class Hand
   def initialize
     @hand_cards = []
     @hand_value = 0
+    # @rank_hash
   end
 
   def hand
@@ -11,11 +12,16 @@ class Hand
   def add(*c)
     #recalculate hand_value based on additional cards
     #put additional cards in hand in case need to show player hand
-    c.each do |c|
-      @hand_value += c.value
-      #@hand_card.push(c)
-    end
+    # if c.rank == :A && @hand_value > 21
+    #     hand_value -= 10
+    # end
+
+    
+    c.each do |a|
+      @hand_value += a.value
+      end
   end
+
 
   def value
     @hand_value
