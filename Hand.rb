@@ -9,15 +9,28 @@ class Hand
   end
 
   def add(*c)
-    #add new cards to hand
-    @hand_cards.push(c)
+    #recalculate hand_value based on additional cards
+    #put additional cards in hand in case need to show player hand
+    c.each do |c|
+      @hand_value += c.value
+      #@hand_card.push(c)
+    end
   end
 
   def value
-  #recalculate hand_value based on additional cards
-  ##why can't I call card value here?
-    @hand_cards.each
-      @hand_value += card.value
     @hand_value
+  end
+
+  def busted?
+    @hand_value > 21
+  end
+
+  def blackjack?
+    @hand_value = 21
+  end
+
+  def show_hand_string
+    #above only does values- how add strings??  Does this need to happen
+    #when card is added somehow?
   end
 end
